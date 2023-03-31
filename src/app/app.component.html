@@ -1,0 +1,164 @@
+<div class="row fullWidth">
+  <div class="large-12 columns box"><br><br> 
+    <div>
+      <span class="a1">Customer zone</span><br>
+      <span class="a2">Change your offer</span>
+    </div>
+    <div class="logo" [ngClass]="!text_al ? 'text-ali-nil' : 'text-ali'">
+        <i class="fi-lightbulb"  ></i> 
+        <span  class="bo" [ngClass]="!text_al ? 'text-ali-nil' : 'text-ali'">We have a better offer for you !</span>
+    </div>
+  </div>
+</div><br><br>
+<svg class="circulo" width="240" height="240" viewBox="0 0 240 240">
+<circle cx="120" cy="120" r="120" fill="#ebeced"></circle>
+<path id="porcentaje" d="" fill="#58d6a6"></path>
+<circle cx="120" cy="120" r="100" fill="#ffffff"></circle>
+<text id="porcentaje-texto" x="50%" y="50%" alignment-baseline="middle" text-anchor="middle" fill="black" stroke="none" style="font-size:40px">0%</text>
+</svg>
+<div class="cont">
+  <div  style="text-align: center" [style.visibility]="isMiddleDivVisible ? 'visible' : 'hidden'" (window:resize)="onResize($event)">
+    <span class="fa fa-angle-down" ></span>
+    <br>
+  </div>  
+  <div  [ngClass]="!text_al ? 'text-ali-nil' : 'text-ali'">
+    <span class="o" >Hello </span>
+    <span class="w">recommends you </span>
+    <span class="a">JIO </span>
+    <span class="fo1">M</span>
+  </div>  
+  <br>
+  <div  style="text-align: center" [style.visibility]="isMiddleDivVisible ? 'visible' : 'hidden'" (window:resize)="onResize($event)">
+    <span class="fa fa-angle-double-down" ></span>
+  </div>
+</div>
+<br>
+<div class="row cont1">
+<div class="col-md-8">
+<div style="text-align: left">
+  <div id="accordion">
+    <div class="card" [ngClass]="!toggleMenu ? 'card' : 'card-yellow'" >
+      <div class="card-header" id="headingone">
+        <div data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapse1"  (click)="toggle()">
+          <span>JIO S </span>
+          <span>10 </span><span>€/month</span>
+        </div>
+      </div>
+      <div  class="collapse" id="collapse1" aria-labelledby="headingone" data-parent="#accordion">
+        <div class="card-header">
+        
+          <span>200 min.</span>
+          <span>1.5 GB </span>
+          <span>Data Pass</span>
+        </div>
+      </div>             
+    </div>
+    <br>
+    <div class="card" [ngClass]="!toggleMenu2 ? 'card' : 'card-yellow'">
+      <div class="card-header" id="headingtwo">
+        <div data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2" (click)="toggle2()">
+          <span>JIO M </span>
+          <span>20 </span><span>€/month</span>
+        </div>
+      </div>
+      <div class="collapse" id="collapse2" aria-labelledby="headingtwo" data-parent="#accordion">
+        <div class="card-header">
+          <span>300 min.</span>
+          <span>3 GB </span>
+          <span>Data Pass</span>
+        </div>           
+      </div>
+    </div>
+    <br>
+    <div class="card" [ngClass]="!toggleMenu3 ? 'card' : 'card-yellow'">
+      <div class="card-header" id="headingthree">
+        <div data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3" (click)="toggle3()">
+          <span>JIO L </span>
+          <span>30 </span><span>€/month</span>
+        </div>
+      </div>
+      <div class="collapse" id="collapse3" aria-labelledby="headingthree" data-parent="#accordion">
+        <div class="card-header">
+          <span>400 min.</span>
+          <span>5 GB </span>
+          <span>Data Pass</span>
+        </div>
+      </div>              
+    </div>
+    <br>
+    <div class="card" [ngClass]="!toggleMenu4 ? 'card' : 'card-yellow'">
+      <div class="card-header" id="headingfourth">
+        <div data-toggle="collapse" data-target="#collapse4" aria-expanded="false" aria-controls="collapse4" (click)="toggle4()">
+          <span>JIO XL </span>
+          <span>40 </span><span>€/month</span>
+        </div>
+      </div>
+      <div class="collapse" id="collapse4" aria-labelledby="headingfourth" data-parent="#accordion">
+        <div class="card-header">
+          <span>500 min.</span>
+          <span>7 GB </span>
+          <span>Data Pass</span>
+        </div> 
+      </div>           
+    </div>
+  </div>
+</div>
+<br>
+<div style="text-align: center" [style.visibility]="isMiddleDivVisible ? 'visible' : 'hidden'" (window:resize)="onResize($event)">
+  <span class="fa fa-angle-double-down" ></span>
+</div>
+
+<div [ngClass]="!text_al ? 'text-ali-nil' : 'text-ali'">
+  <span class="fo" >I </span>
+  <span class="o" >save </span>
+  <span class="fo" >25,22 €/month and expect an average bill of 27,60 €</span>
+</div>
+<br>
+
+<div [ngClass]="!text_al ? 'text-ali-nil' : 'text-ali'">
+    <button type="button" class="btn bt1" [ngClass]="!text_al ? 'bt1-orange' : 'bt1'">OK, I change now</button>
+</div>
+<br>
+</div>
+<div class="col-md-4">
+<div class="row fullWidth1">
+  <div class="large-12 columns box1">
+    <div style="text-align: center">
+      <span class="fo" >Average for the </span>
+      <span class="o" >last 3 months </span>
+      <span class="fo" >with dolphin</span>
+    </div><br>
+<div class="flex-wrapper" *ngIf="arrName">
+    <div class="single-chart" *ngFor="let val of arrName | slice : 0:3"><app-circular-progress [value] = val.yourValue></app-circular-progress></div>
+    
+</div>
+<br>  
+  <div style="text-align: center" fxHide fxShow.gt-sm>
+    <span class="fa fa-angle-double-down" ></span>
+  </div>
+  <div style="text-align: center">
+      <span class="fo" >My</span>
+      <span class="o" > new</span>
+      <span class="fo" > consumption with abonnement</span>
+      <span class="o" > M</span>
+  </div>
+  
+  <div class="flex-wrapper">
+      <div class="single-chart" *ngFor="let val of arrName | slice : 3:6"><app-circular-progress [value] = val.yourValue></app-circular-progress></div>
+    </div>  
+  <div style="text-align: center">
+    <span class="fo" >My</span>
+    <span class="o" > Test</span>
+    <span class="fo" > half circle</span>
+    <span class="o" > Retanqueo Credito</span>
+  </div>
+  <div class="flex-wrapper">
+    <div class="single-chart2"><app-circular-progress [value] = yourValue></app-circular-progress></div>
+  </div>  
+  <div style="text-align: center" [style.visibility]="isMiddleDivVisible ? 'visible' : 'hidden'" (window:resize)="onResize($event)">
+    <button type="button" class="btn bt2" >OK, I change now</button>
+  </div>
+</div>
+</div>
+</div>
+</div>
