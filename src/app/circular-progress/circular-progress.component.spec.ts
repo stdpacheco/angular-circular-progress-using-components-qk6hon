@@ -14,7 +14,7 @@ describe('CircularProgressComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CircularProgressComponent);
+    fixture = TestBed.createComponent(CircularProgressComponent);   
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

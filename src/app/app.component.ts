@@ -27,7 +27,6 @@ export class AppComponent {
     toggle4(){ this.toggleMenu4 = !this.toggleMenu4; }
 
     arrName: number[];
-    yourValue: number=30;
     msg:string;
 
     constructor(private httpService: HttpClient){

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-circular-progress',
@@ -7,14 +7,19 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class CircularProgressComponent implements OnInit {
 
-  constructor() { }
+  /*constructor() { }*/
 
   cssprop = 'circular-chart nill';
   strokes = '0 ,100';
-  
+  strokeDashoffset='';
+  percentValue="";
+  radius = 54;
+  circumference = Math.PI * this.radius;
+  circumferencePercent = 0;
+  dashoffset: number;
   @Input() value;
 
-  ngOnInit(): void {
+  /*ngOnInit(): void {
     
     if (Number(this.value) > 0 && Number(this.value) <= 50) {
       this.cssprop = 'circular-chart green';
@@ -28,20 +33,31 @@ export class CircularProgressComponent implements OnInit {
       this.cssprop = 'circular-chart red';
       this.strokes =  this.value +' ,'+100;
     }  
+    this.progress(0);
+  }
+  */
+
+
+  constructor() {
+    this.progress(0);
   }
 
-  circlePath(cx, cy, r, percentil){
-  
-    var coordx = cx + r * Math.cos( 2 * Math.PI * percentil / 100 - Math.PI / 2 );
-    var coordy = cy + r * Math.sin( 2 * Math.PI * percentil / 100 - Math.PI / 2 );
-    var modif = percentil >= 50 ? "0 1,1" : " 1 0,1";
-    var variables = "M" + cx + "," + cy + " L" + cx +"," + (cx - r) + " A" + r + "," + r + " " + modif + " " + coordx + ", " + coordy + " Z";
-    
-    var pathEl = document.getElementById("porcentaje");
-    pathEl.setAttribute("d", variables);
-    pathEl.setAttribute("fill", "red");
-    
-    document.getElementById("porcentaje-texto").innerHTML = percentil + "%";
+  ngOnInit() {}
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.value.currentValue !== changes.value.previousValue) {
+      this.progress(changes.value.currentValue);
+    }
   }
+
+  private progress(value: number) {
+    const progress = value / 100;
+    this.dashoffset = this.circumference * (1 - progress);
+    this.circumferencePercent=Math.PI*this.radius*(progress);
+    console.log(this.circumferencePercent);
+  }
+  
+
+
 
 }
